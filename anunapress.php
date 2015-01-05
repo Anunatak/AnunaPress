@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       AnunaPress
- * Plugin URI:        http://anunatak.no
+ * Plugin URI:        https://github.com/Anunatak/AnunaPress
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
  * Version:           1.0.0
  * Author:            Tor Morten Jensen
@@ -52,6 +52,25 @@ register_activation_hook( __FILE__, 'activate_anunapress' );
 register_deactivation_hook( __FILE__, 'deactivate_anunapress' );
 
 /**
+ * The updater class which utilizes the GitHub Updates Class
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-anunapress-updater.php';
+
+/**
+ * Creates an update instance
+ *
+ * @since    1.0.0
+ */
+function update_anunapress() {
+
+	// initate update
+	Anunapress_Update::init( __FILE__ );
+
+}
+
+update_anunapress();
+
+/**
  * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
@@ -67,6 +86,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-anunapress.php';
  * @since    1.0.0
  */
 function run_anunapress() {
+
+	// initate update
+	Anunapress_Update::init( __FILE__ );
 
 	$plugin = new Anunapress();
 	$plugin->run();
