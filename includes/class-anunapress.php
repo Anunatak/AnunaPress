@@ -121,6 +121,28 @@ class Anunapress {
 
 		$this->loader = new Anunapress_Loader();
 
+		/**
+		 * Loads up the template tags
+		 */
+		
+		$this->loader->add_action( 'wp', $this, 'load_template_tags' );
+
+	}
+
+	/**
+	 * Loads the template tags.
+	 *
+	 * The function loads up the template tags that is used by the plugin
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	public function load_template_tags() {
+
+		if( !is_admin() ) {
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/template-tags.php';
+		}
+
 	}
 
 	/**

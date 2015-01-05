@@ -51,12 +51,6 @@ class Anunapress_Public {
 
 		$this->anunapress = $anunapress;
 		$this->version = $version;
-
-		/**
-		 * Loads up the template tags
-		 **/
-
-		include 'template-tags.php';
 		
 	}
 
