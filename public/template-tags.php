@@ -30,6 +30,9 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 	 **/
 	function anuna_img( $img = '', $args = '' ) {
 
+		// filter the merged args
+		$args			= apply_filters( 'anuna_img_args_parsed', $args );
+
 		// default placeholder args
 		$placeholder 	= array(
 			'color'					=> '000000',
@@ -51,11 +54,17 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 			'id'					=> '', // the ID of the image.
 			'theme_folder'			=> '/images/', // the default image folder in the theme
 			'placeholder'			=> $placeholder, // placeholder options
-			'post_id'				=> null,
+			'post_id'				=> null // the ID of the current post. defaults to $post->ID
 		);
+
+		// filter the defaults
+		$defaults	= apply_filters( 'anuna_img_defaults', $defaults );
 
 		// merge with args
 		$args 		= wp_parse_args( $args, $defaults );
+
+		// filter the merged args
+		$args		= apply_filters( 'anuna_img_args_parsed', $args );
 
 		// default vars
 		$src 			= ''; // the source url
@@ -178,13 +187,38 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 
 				break;
 
+			// builds the array
+			case 'array':
+
+				$return = array(
+					'src' 		=> $src,
+					'alt' 		=> $alt,
+					'title'		=> $title,
+					'class'		=> $class,
+					'id'		=> $id,
+					'original'	=> $img
+				);
+
+				break;
+
+			// returns the source
+			case 'src':
+
+				$return = $src;
+
+				break;
+
+			default:
+				$return = $img;
+				break;
+
 		}
+
+		return $return;
 
 
 
 	}
-
-	anuna_img();
 
 	endif;
 
