@@ -190,6 +190,7 @@ class Anunapress {
 
 		$plugin_public = new Anunapress_Public( $this->get_anunapress(), $this->get_version() );
 
+		$this->loader->add_action( 'login_enqueue_scripts', $plugin_public, 'enqueue_login_scripts' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
