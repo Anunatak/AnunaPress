@@ -58,17 +58,19 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 		$args 		= wp_parse_args( $args, $defaults );
 
 		// default vars
-		$src 		= ''; // the source url
-		$classes 	= ''; // all the classes
-		$alt 		= ''; // the alt text
-		$alt 		= ''; // the title
-		$folder_dir = get_template_directory() . $args['theme_folder'];
-		$folder_url = get_template_directory_uri() . $args['theme_folder'];
-		$crop 		= $args['crop'] === 'true' || $args['crop'] === true ? true : false; 
-		$upscale 	= $args['upscale'] === 'true' || $args['upscale'] === true ? true : false;
-		$do_resize 	= false;
-		$width 		= $args['width'];
-		$height 	= $crop ? $height : null;
+		$src 			= ''; // the source url
+		$classes 		= ''; // all the classes
+		$alt 			= ''; // the alt text
+		$alt 			= ''; // the title
+		$folder_dir 	= get_template_directory() . $args['theme_folder'];
+		$folder_url 	= get_template_directory_uri() . $args['theme_folder'];
+		$crop 			= $args['crop'] === 'true' || $args['crop'] === true ? true : false; 
+		$upscale 		= $args['upscale'] === 'true' || $args['upscale'] === true ? true : false;
+		$do_resize 		= false;
+		$width 			= $args['width'];
+		$height 		= $crop ? $height : null;
+		$attachment_id 	= 0;
+		$return 		= false;
 
 		if( $args['post_id'] === null ) {
 			global $post;
@@ -82,6 +84,7 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 			case 'theme' :
 
 				if( file_exists( $folder_dir . $img ) ) {
+					$attachment_id = 'theme-'. sanitize_title( $img ); 
 					$src = $folder_url . $img;
 				}
 
@@ -142,6 +145,8 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 				// set the source to the image for all else
 				$src = $img;
 
+				$attachment_id	= sanitize_title( $src );
+
 				// perform resizing
 				$do_resize 		= true;
 
@@ -153,6 +158,25 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 			require_once '../includes/aq-resizer/aq_resizer.php';
 
 			$src = aq_resize( $src, $width, $height, $crop, false, $upscale );
+
+		}
+
+		switch( $args['output'] ) {
+
+			// builds the html
+			case 'html':
+
+				$id = $args['id'] ? $args['id'] : 'attachment-image-' . $attachment_id;
+
+				$return = '<img ';
+				$return .= 'src="'. $src .'" ';
+				$return .= 'alt="'. $alt .'" ';
+				$return .= 'title="'. $title .'" ';
+				$return .= 'class="'. $class .'" ';
+				$return .= 'id="'. $id .'" ';
+				$return .= '/>';
+
+				break;
 
 		}
 
