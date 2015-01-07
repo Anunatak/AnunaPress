@@ -224,4 +224,4 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 
 }
 
-?>´
+?>
