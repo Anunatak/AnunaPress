@@ -1,6 +1,0 @@
-[submodule "includes/updater"]
-	path = includes/updater
-	url = https://github.com/radishconcepts/WordPress-GitHub-Plugin-Updater.git
-[submodule "includes/aq-resizer"]
-	path = includes/aq-resizer
-	url = https://github.com/syamilmj/Aqua-Resizer
