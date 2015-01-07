@@ -31,7 +31,7 @@ class Anunapress_Update {
 	 */
 	public static function init( $file ) {
 
-		include_once 'updater/updater.php';
+		include_once 'update/updater.php';
 
 		defined( 'WP_GITHUB_FORCE_UPDATE' ) || define( 'WP_GITHUB_FORCE_UPDATE', true );
 
