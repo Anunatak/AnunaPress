@@ -100,4 +100,33 @@ class Anunapress_Admin {
 
 	}
 
+	/**
+	 * Adds custom text to the admin footer
+	 *
+	 * @since    1.0.0
+	 */
+	public function dashboard_footer() {
+		
+		echo sprintf( __( '<a href="%s">WordPress</a> delievered by <a href="%s">Anunatak</a>', 'anunapress' ), 'http://wordpress.org', 'http://anunatak.no' );
+
+	}
+
+	/**
+	 * Registers a custom admin color scheme
+	 *
+	 * @since    1.0.0
+	 */
+	public function admin_color_sceme() {
+
+		wp_admin_css_color( 'anunatak', __( 'Anunatak', 'anunapress' ),  
+	        plugin_dir_url( __FILE__ ) . '/css/anunapress-color-scheme.css',  
+	 		array( '#b43c38', '#cf4944', '#dd823b', '#ccaf0b' )
+	    );
+
+	}
+
 }
+
+
+
+

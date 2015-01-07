@@ -176,6 +176,8 @@ class Anunapress {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_color_sceme' );
+		$this->loader->add_filter( 'admin_footer_text', $plugin_admin, 'dashboard_footer' );
 
 	}
 
