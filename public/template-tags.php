@@ -30,6 +30,9 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 	 **/
 	function anuna_img( $img = '', $args = '' ) {
 
+		// filter the merged args
+		$args			= apply_filters( 'anuna_img_args_parsed', $args );
+
 		// default placeholder args
 		$placeholder 	= array(
 			'color'					=> '000000',
@@ -51,24 +54,32 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 			'id'					=> '', // the ID of the image.
 			'theme_folder'			=> '/images/', // the default image folder in the theme
 			'placeholder'			=> $placeholder, // placeholder options
-			'post_id'				=> null,
+			'post_id'				=> null // the ID of the current post. defaults to $post->ID
 		);
+
+		// filter the defaults
+		$defaults	= apply_filters( 'anuna_img_defaults', $defaults );
 
 		// merge with args
 		$args 		= wp_parse_args( $args, $defaults );
 
+		// filter the merged args
+		$args		= apply_filters( 'anuna_img_args_parsed', $args );
+
 		// default vars
-		$src 		= ''; // the source url
-		$classes 	= ''; // all the classes
-		$alt 		= ''; // the alt text
-		$alt 		= ''; // the title
-		$folder_dir = get_template_directory() . $args['theme_folder'];
-		$folder_url = get_template_directory_uri() . $args['theme_folder'];
-		$crop 		= $args['crop'] === 'true' || $args['crop'] === true ? true : false; 
-		$upscale 	= $args['upscale'] === 'true' || $args['upscale'] === true ? true : false;
-		$do_resize 	= false;
-		$width 		= $args['width'];
-		$height 	= $crop ? $height : null;
+		$src 			= ''; // the source url
+		$classes 		= ''; // all the classes
+		$alt 			= ''; // the alt text
+		$alt 			= ''; // the title
+		$folder_dir 	= get_template_directory() . $args['theme_folder'];
+		$folder_url 	= get_template_directory_uri() . $args['theme_folder'];
+		$crop 			= $args['crop'] === 'true' || $args['crop'] === true ? true : false; 
+		$upscale 		= $args['upscale'] === 'true' || $args['upscale'] === true ? true : false;
+		$do_resize 		= false;
+		$width 			= $args['width'];
+		$height 		= $crop ? $height : null;
+		$attachment_id 	= 0;
+		$return 		= false;
 
 		if( $args['post_id'] === null ) {
 			global $post;
@@ -82,6 +93,7 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 			case 'theme' :
 
 				if( file_exists( $folder_dir . $img ) ) {
+					$attachment_id = 'theme-'. sanitize_title( $img ); 
 					$src = $folder_url . $img;
 				}
 
@@ -142,6 +154,8 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 				// set the source to the image for all else
 				$src = $img;
 
+				$attachment_id	= sanitize_title( $src );
+
 				// perform resizing
 				$do_resize 		= true;
 
@@ -156,11 +170,55 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 
 		}
 
+		switch( $args['output'] ) {
+
+			// builds the html
+			case 'html':
+
+				$id = $args['id'] ? $args['id'] : 'attachment-image-' . $attachment_id;
+
+				$return = '<img ';
+				$return .= 'src="'. $src .'" ';
+				$return .= 'alt="'. $alt .'" ';
+				$return .= 'title="'. $title .'" ';
+				$return .= 'class="'. $class .'" ';
+				$return .= 'id="'. $id .'" ';
+				$return .= '/>';
+
+				break;
+
+			// builds the array
+			case 'array':
+
+				$return = array(
+					'src' 		=> $src,
+					'alt' 		=> $alt,
+					'title'		=> $title,
+					'class'		=> $class,
+					'id'		=> $id,
+					'original'	=> $img
+				);
+
+				break;
+
+			// returns the source
+			case 'src':
+
+				$return = $src;
+
+				break;
+
+			default:
+				$return = $img;
+				break;
+
+		}
+
+		return $return;
+
 
 
 	}
-
-	anuna_img();
 
 	endif;
 
