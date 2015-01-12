@@ -112,33 +112,6 @@ class Anunapress_Admin {
 	}
 
 	/**
-	 * Changes the logo in the admin bar
-	 *
-	 * @return void
-	 **/
-	public function admin_bar_logo() {
-
-		echo '
-			<style type="text/css">
-			#wpadminbar>#wp-toolbar>#wp-admin-bar-root-default #wp-admin-bar-wp-logo > .ab-item .ab-icon { 
-				background-image: url(' . plugin_dir_url( __FILE__ ) . 'img/logo.png) !important; 
-				background-position: 0 0;
-				text-indent: -99999px;
-				background-size: 20px auto;
-				background-repeat: no-repeat;
-				overflow: hidden;
-				width: 20px;
-				height: 12px;
-				margin-top: 5px;
-			}
-			#wpadminbar>#wp-toolbar>#wp-admin-bar-root-default #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {
-				background-position: 0 -20px;
-			}   
-			 </style>
-		';
-	}
-
-	/**
 	 * Registers a custom admin color scheme
 	 *
 	 * @since    1.0.0
