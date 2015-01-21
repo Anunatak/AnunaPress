@@ -214,9 +214,9 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 
 		if( $do_resize ) {
 
-			require_once '../includes/aqresizer/aq_resizer.php';
+			require_once plugin_dir_path( __FILE__ ) . '../includes/aqresizer/aq_resizer.php';
 
-			$src = aq_resize( $src, $width, $height, $crop, false, $upscale );
+			$src = aq_resize( $src, $width, $height, $crop, true, $upscale );
 
 		}
 
