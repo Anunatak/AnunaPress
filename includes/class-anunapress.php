@@ -69,7 +69,7 @@ class Anunapress {
 	public function __construct() {
 
 		$this->anunapress = 'anunapress';
-		$this->version = '1.0.0';
+		$this->version = '1.0.3';
 
 		$this->load_dependencies();
 		$this->set_locale();
