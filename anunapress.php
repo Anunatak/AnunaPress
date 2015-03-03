@@ -16,7 +16,7 @@
  * Plugin Name:       AnunaPress
  * Plugin URI:        https://github.com/Anunatak/AnunaPress
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Tor Morten Jensen
  * Author URI:        http://anunatak.no
  * License:           GPL-2.0+

@@ -85,7 +85,9 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 
 		if( $args['post_id'] === null ) {
 			global $post;
-			$post_id = $post->ID;
+			$post_id = null;
+			if($post)
+				$post_id = $post->ID;
 		}
 
 		// find the type
