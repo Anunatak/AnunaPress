@@ -89,6 +89,9 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 			if($post)
 				$post_id = $post->ID;
 		}
+		else {
+			$post_id = $args['post_id'];
+		}
 
 		// find the type
 		switch ( $args['type'] ) {
