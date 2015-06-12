@@ -221,6 +221,10 @@ if( apply_filters( 'anunatak_load_anuna_img', true ) ) {
 
 			require_once plugin_dir_path( __FILE__ ) . '../includes/aqresizer/aq_resizer.php';
 			$old_src = $src;
+
+			if(substr($src, 0, 4) !== 'http') {
+				$src = home_url($src);
+			}
 			$src = aq_resize( $src, $width, $height, $crop, true, $upscale );
 			if(!$src) {
 				$src = $old_src;
