@@ -124,8 +124,8 @@ class Anunapress {
 		/**
 		 * Loads up the template tags
 		 */
-		
-		$this->loader->add_action( 'wp', $this, 'load_template_tags' );
+
+		$this->loader->add_action( 'init', $this, 'load_template_tags' );
 
 	}
 
@@ -139,9 +139,7 @@ class Anunapress {
 	 */
 	public function load_template_tags() {
 
-		if( !is_admin() ) {
-			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/template-tags.php';
-		}
+		include_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/template-tags.php';
 
 	}
 
