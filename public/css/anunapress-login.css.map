@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";;;;AAKA,MAAO;EAEN,UAAU,EAAE,IAAI;EAEhB,WAAK;IACJ,UAAU,EAAE,OAAgB;EAI5B,WAAE;IACD,KAAK,EAAE,IAAI;IACX,UAAU,EAAE,oDAAoD;IAChE,eAAe,EAAE,SAAS;EAI5B,sBAAgB;IACf,UAAU,EAAE,OAAiB;IAC7B,YAAY,EAAE,OAAkB;IAChC,0DAAiB;MAChB,UAAU,EAAE,OAAkB;MAC9B,YAAY,EAAE,OAAkB",
-"sources": ["anunapress-login.scss"],
-"names": [],
-"file": "anunapress-login.css"
-}
