@@ -124,10 +124,15 @@ class Anunapress {
 		/**
 		 * Loads up the template tags
 		 */
+<<<<<<< HEAD
 		
 		$this->loader->add_action( 'init', $this, 'load_template_tags' );
 		$this->loader->add_action( 'wp_ajax_nopriv_anuna_img_multiply_async', 'Anuna_Image', 'asyncMultiply' );
 		$this->loader->add_action( 'wp_ajax_anuna_img_multiply_async', 'Anuna_Image', 'asyncMultiply' );
+=======
+
+		$this->loader->add_action( 'init', $this, 'load_template_tags' );
+>>>>>>> 2a0d749addc7d45d724025fe498ce2edbf416d92
 
 	}
 
@@ -140,6 +145,10 @@ class Anunapress {
 	 * @access   private
 	 */
 	public function load_template_tags() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a0d749addc7d45d724025fe498ce2edbf416d92
 		include_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/template-tags.php';
 
 	}
