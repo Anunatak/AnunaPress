@@ -60,7 +60,7 @@ class AnunaPress_Dashboard {
      */
     public static function script($hook) {
         if($hook === 'index.php') {
-            wp_enqueue_script( 'anunapress/dashboard', plugins_url( 'assets/js/dashboard.js', ANUNAPRESS_FILE ), array('jquery'), AnunaPress()->version );
+            wp_enqueue_script( 'anunapress/js/dashboard' );
         }
     }
 

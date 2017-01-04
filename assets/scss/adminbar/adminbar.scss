@@ -1,0 +1,31 @@
+@import '../common/_variables';
+
+#wpadminbar, #wpadminbar > #wp-toolbar > #wp-admin-bar-root-default {
+  #wp-admin-bar-anunatak-logo {
+    a.ab-item {
+      position: relative;
+      width: 24px;
+      span.ab-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        &:before {
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 3px;
+          right: 0;
+          content: '';
+          background-repeat: no-repeat;
+          background-image: url(../img/anunatak-logo-symbol.png);
+          background-size: 15px auto;
+          background-position: center center;
+        }
+      }
+    }
+  }
+}

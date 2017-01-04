@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-03 15:10+0100\n"
-"PO-Revision-Date: 2017-01-03 15:17+0100\n"
+"Project-Id-Version: AnunaPress\n"
+"POT-Creation-Date: 2017-01-04 13:14+0100\n"
+"PO-Revision-Date: 2017-01-04 13:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nb\n"
@@ -13,27 +13,38 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: includes\n"
+"X-Poedit-SearchPath-1: anunapress.php\n"
 
 #: anunapress.php:80 anunapress.php:89
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: includes/class-dashboard-cleanup.php:26
+#: includes/class-admin.php:22 includes/class-adminbar.php:27
+msgid "Anunatak"
+msgstr "Anunatak"
+
+#: includes/class-admin.php:55
+#, php-format
+msgid "<a href=\"%s\">WordPress</a> delievered by <a href=\"%s\">Anunatak</a>"
+msgstr "<a href=\"%s\">WordPress</a> levert av <a href=\"%s\">Anunatak</a>"
+
+#: includes/class-dashboard.php:37
 msgid "This is not a valid email address"
 msgstr "Dette er ikke en gylding epostadresse"
 
-#: includes/class-dashboard-cleanup.php:30
+#: includes/class-dashboard.php:41
 #, php-format
 msgid "[%s]: Enquiry from %s"
 msgstr "[%s]: Henvendelse fra %s"
 
-#: includes/class-dashboard-cleanup.php:32
+#: includes/class-dashboard.php:43
 #, php-format
 msgid "%s submitted an enquiry from their WordPress dashboard."
 msgstr "%s har sendt en henvendelse fra deres WordPress kontrollpanel"
 
-#: includes/class-dashboard-cleanup.php:42
+#: includes/class-dashboard.php:53
 msgid ""
 "Thank you for your enquiry. It has been submitted to our web team, and we "
 "will respond shortly."
@@ -41,13 +52,12 @@ msgstr ""
 "Takk for din henvendelse. Den har blitt sendt til vårt web-team og vi svarer "
 "så fort vi kan."
 
-#: includes/class-dashboard-cleanup.php:66
-#: includes/class-dashboard-cleanup.php:98
-#: includes/class-dashboard-cleanup.php:112
+#: includes/class-dashboard.php:86 includes/class-dashboard.php:126
+#: includes/class-dashboard.php:140
 msgid "Contact Anunatak"
 msgstr "Kontakt Anunatak"
 
-#: includes/class-dashboard-cleanup.php:73
+#: includes/class-dashboard.php:97
 msgid ""
 "If you have any questions regarding this website, please contact us via this "
 "form."
@@ -55,27 +65,27 @@ msgstr ""
 "Hvis du har noen spørsmål vedrørende denne nettsiden, vennligst kontakt oss "
 "via dette skjemaet."
 
-#: includes/class-dashboard-cleanup.php:76
+#: includes/class-dashboard.php:100
 msgid "Your Name"
 msgstr "Ditt navn"
 
-#: includes/class-dashboard-cleanup.php:79
+#: includes/class-dashboard.php:103
 msgid "Your Email"
 msgstr "Din epost"
 
-#: includes/class-dashboard-cleanup.php:82
+#: includes/class-dashboard.php:106
 msgid "Question/Enquiry"
 msgstr "Spørsmål/henvendelse"
 
-#: includes/class-dashboard-cleanup.php:85
+#: includes/class-dashboard.php:109
 msgid "Submit"
 msgstr "Send"
 
-#: includes/class-dashboard-cleanup.php:94
+#: includes/class-dashboard.php:122
 msgid "Welcome to WordPress from Anunatak!"
 msgstr "Velkommen til WordPress fra Anunatak"
 
-#: includes/class-dashboard-cleanup.php:95
+#: includes/class-dashboard.php:123
 #, php-format
 msgid ""
 "Anunatak builds all sites on the WordPress platform. WordPress is used by "
@@ -84,7 +94,7 @@ msgstr ""
 "Anunatak bygger alle sider på WordPress-plattformen. WordPress blir brukt av "
 "25% av alle verdens nettsider som har et kjent publiseringsverktøy."
 
-#: includes/class-dashboard-cleanup.php:99
+#: includes/class-dashboard.php:127
 msgid ""
 "If you have any questions about your website, do not hesitate to contact "
 "Anunatak. You can use the form below to send your enquiry."
@@ -92,23 +102,23 @@ msgstr ""
 "Hvis du har spørsmål om din nettside, nøl ikke med å kontakte Anunatak. Du "
 "kan bruke skjemaet under for å sende din henvendelse."
 
-#: includes/class-dashboard-cleanup.php:102
+#: includes/class-dashboard.php:130
 msgid "What do I do now?"
 msgstr "Hva gjør jeg nå?"
 
-#: includes/class-dashboard-cleanup.php:104
+#: includes/class-dashboard.php:132
 msgid "Edit your pages"
 msgstr "Endre dine sider"
 
-#: includes/class-dashboard-cleanup.php:105
+#: includes/class-dashboard.php:133
 msgid "View your site"
 msgstr "Vis siden din"
 
-#: includes/class-dashboard-cleanup.php:109
+#: includes/class-dashboard.php:137
 msgid "Get Help"
 msgstr "Få hjelp"
 
-#: includes/class-dashboard-cleanup.php:110
+#: includes/class-dashboard.php:138
 msgid ""
 "WordPress is thoroughly documented through its codex, and help can be found "
 "simply by Googling it."
@@ -116,18 +126,18 @@ msgstr ""
 "WordPress er grundig dokumentert gjennom deres codex, og hjelp kan finnes "
 "ved å Google etter det."
 
-#: includes/class-dashboard-cleanup.php:113
+#: includes/class-dashboard.php:141
 msgid "Find your contact person"
 msgstr "Finn din kontaktperson"
 
-#: includes/class-dashboard-cleanup.php:113
+#: includes/class-dashboard.php:141
 msgid "https://anunatak.no/ansatte/"
 msgstr ""
 
-#: includes/class-dashboard-cleanup.php:114
+#: includes/class-dashboard.php:142
 msgid "Learn more about getting started"
 msgstr "Lær mer om å komme i gang"
 
-#: includes/class-dashboard-cleanup.php:114
+#: includes/class-dashboard.php:142
 msgid "https://codex.wordpress.org/First_Steps_With_WordPress"
 msgstr ""

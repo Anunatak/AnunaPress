@@ -12,6 +12,8 @@ $notification-color: #d54e21 !default;
 
 // global
 
+$font-family: 'Lato';
+
 $body-background: #f1f1f1 !default;
 
 $link: #0073aa !default;
@@ -21,7 +23,7 @@ $button-color: $highlight-color !default;
 $form-checked: $highlight-color !default;
 
 
-// admin menu & admin-bar
+// admin menu
 
 $menu-text: $text-color !default;
 $menu-icon: $icon-color !default;
@@ -52,7 +54,43 @@ $menu-collapse-icon: $menu-icon !default;
 $menu-collapse-focus-text: $text-color !default;
 $menu-collapse-focus-icon: $menu-highlight-icon !default;
 
-$adminbar-avatar-frame: lighten( $menu-background, 7% ) !default;
-$adminbar-input-background: lighten( $menu-background, 7% ) !default;
+$menu-avatar-frame: lighten( $menu-background, 7% ) !default;
+$menu-input-background: lighten( $menu-background, 7% ) !default;
 
 $menu-customizer-text: mix( $base-color, $text-color, 40% ) !default;
+
+// admin-bar
+
+$adminbar-text: $text-color !default;
+$adminbar-icon: $icon-color !default;
+$adminbar-background: $base-color !default;
+
+$adminbar-highlight-text: $text-color !default;
+$adminbar-highlight-icon: $text-color !default;
+$adminbar-highlight-background: $highlight-color !default;
+
+$adminbar-current-text: $adminbar-highlight-text !default;
+$adminbar-current-icon: $adminbar-highlight-icon !default;
+$adminbar-current-background: $adminbar-highlight-background !default;
+
+$adminbar-submenu-focus-text: $highlight-color !default;
+$adminbar-submenu-current-text: $text-color !default;
+
+$adminbar-submenu-text: mix( $base-color, $text-color, 30% ) !default;
+$adminbar-submenu-background: darken( $base-color, 7% ) !default;
+$adminbar-submenu-background-alt: desaturate( lighten( $adminbar-background, 7% ), 7% ) !default;
+
+$adminbar-bubble-text: $text-color !default;
+$adminbar-bubble-background: $notification-color !default;
+$adminbar-bubble-current-text: $text-color !default;
+$adminbar-bubble-current-background: $adminbar-submenu-background !default;
+
+$adminbar-collapse-text: $adminbar-icon !default;
+$adminbar-collapse-icon: $adminbar-icon !default;
+$adminbar-collapse-focus-text: $text-color !default;
+$adminbar-collapse-focus-icon: $adminbar-highlight-icon !default;
+
+$adminbar-avatar-frame: lighten( $adminbar-background, 7% ) !default;
+$adminbar-input-background: lighten( $adminbar-background, 7% ) !default;
+
+$adminbar-customizer-text: mix( $base-color, $text-color, 40% ) !default;

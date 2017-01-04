@@ -7,7 +7,9 @@ class AnunaPress_Login {
     }
 
     public static function scripts() {
-        wp_enqueue_style( 'anunapress/login', plugins_url( 'assets/css/login.css', __FILE__ ), array(), AnunaPress()->version );
+        if( apply_filters( 'anunapress_enable_login_theme', true ) ) {
+            wp_enqueue_style( 'anunapress/css/login' );
+        }
     }
 
 }

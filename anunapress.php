@@ -105,7 +105,7 @@ final class AnunaPress {
     public function __construct() {
 
         // Helper functions
-        require 'includes/class-helpers.php';
+        require_once 'includes/class-helpers.php';
         $this->helpers = new AnunaPress_Helpers();
 
         // Load translations
@@ -113,30 +113,33 @@ final class AnunaPress {
             load_plugin_textdomain('anunapress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
         });
 
+        // Register styles and scripts
+        require_once 'includes/class-enqueue.php';
+
         // Mail changes
-        require 'includes/class-mail.php';
+        require_once 'includes/class-mail.php';
 
         // Image resizing
-        require 'includes/class-image.php';
+        require_once 'includes/class-image.php';
 
         // Template tags
-        require 'includes/functions-template-tags.php';
+        require_once 'includes/functions-template-tags.php';
 
         // Modify the login screen
-        require 'includes/class-login.php';
+        require_once 'includes/class-login.php';
 
         // Adminbar modifications
-        require 'includes/class-adminbar.php';
+        require_once 'includes/class-adminbar.php';
 
         // Public hacks
         if(!is_admin()) {
-            require 'includes/class-public.php';
+            require_once 'includes/class-public.php';
         }
 
         // Admin hacks
         if( is_admin() ) {
-            require 'includes/class-admin.php';
-            require 'includes/class-dashboard.php';
+            require_once 'includes/class-admin.php';
+            require_once 'includes/class-dashboard.php';
         }
 
     }

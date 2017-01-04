@@ -8,11 +8,42 @@ class AnunaPress_Admin {
         add_action('admin_footer_text', array(__CLASS__, 'dashboard_footer'));
         add_action('admin_menu', array(__CLASS__, 'hide_update_nag'));
         add_action( 'admin_enqueue_scripts', array(__CLASS__, 'script'), 99999 );
+        add_action( 'admin_head', array(__CLASS__, 'custom_fonts') );
+        add_action( 'admin_enqueue_scripts', array(__CLASS__, 'custom_logo') );
+        add_action( 'admin_menu', array(__CLASS__, 'admin_menu') );
         remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
     }
 
+    public static function admin_menu() {
+        if( apply_filters( 'anunapress_enable_admin_theme', true ) ) {
+            global $menu;
+            $url = apply_filters( 'anunapress_custom_logo_url', 'https://anunatak.no/' );
+            $menu[0] = array(
+                __('Anunatak', 'anunapress'),
+                'read',
+                $url,
+                'anunapress-logo',
+                'anunapress-logo'
+            );
+        }
+    }
+
     public static function script() {
-        wp_enqueue_style( 'anunapress/dashboard', plugins_url( 'assets/css/dashboard.css', ANUNAPRESS_FILE ) );
+        if( apply_filters( 'anunapress_enable_admin_theme', true ) ) {
+            wp_enqueue_style( 'anunapress/css/dashboard' );
+        }
+    }
+
+    public static function custom_fonts() {
+        if( apply_filters( 'anunapress_enable_admin_theme', true ) ) {
+        }
+    }
+
+    public static function custom_logo() {
+        if( apply_filters( 'anunapress_enable_admin_theme', true ) ) {
+            $logo = apply_filters( 'anunapress_custom_logo', plugins_url( 'assets/img/anunatak-logo.png', ANUNAPRESS_FILE ) );
+            wp_add_inline_style( 'anunapress/css/dashboard', '#adminmenu a.anunapress-logo { background-image: url('. $logo .') }' );
+        }
     }
 
     /**
