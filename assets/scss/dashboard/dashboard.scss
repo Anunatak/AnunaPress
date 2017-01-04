@@ -1,18 +1,15 @@
-$base-color: #738e96;
-$icon-color: #f2fcff;
-$highlight-color: #9ebaa0;
-$notification-color: #aa9d88;
-
-$adminbar-background: darken(#738e96, 20%);
-$adminbar-text: #fff;
-$adminbar-icon: #fff;
-
-$form-checked: $base-color;
-
 $adminmenu-width: 250px;
-$adminmenu-width-folded: 60px;
+$adminmenu-width-folded: 120px;
+
+$adminbar-height: 48px;
+
+$contrast-color: red;
 
 @import "../common/_admin.scss";
+
+#welcome-panel, .postbox {
+  border-top: 3px solid $contrast-color;
+}
 
 #adminmenu {
   a.menu-top, .wp-submenu-head {
@@ -69,10 +66,44 @@ $adminmenu-width-folded: 60px;
 #wpcontent,
 #wpfooter {
   margin-left: $adminmenu-width;
+  .folded & {
+    margin-left: $adminmenu-width-folded;
+  }
 }
 
 #wpadminbar {
   left: $adminmenu-width;
+  right: 0;
+  width: auto;
+  height: $adminbar-height;
+  .folded & {
+    left: $adminmenu-width-folded;
+  }
+  .quicklinks a, .quicklinks .ab-empty-item, .shortlink-input {
+    height: $adminbar-height - 16;
+  }
+  .quicklinks > ul > li > a {
+    padding: 8px 15px;
+  }
+
+  .quicklinks .menupop ul li .ab-item,
+  .quicklinks .menupop ul li a strong,
+  .quicklinks .menupop.hover ul li .ab-item, #wpadminbar.nojs .quicklinks .menupop:hover ul li .ab-item,
+  .shortlink-input {
+    padding: 5px 20px;
+    min-width: 200px;
+    font-size: 16px;
+  }
+  .menupop .ab-sub-wrapper {
+    padding-bottom: 15px;
+  }
+  .menupop .menupop > .ab-item:before {
+    top: 8px;
+  }
+}
+
+html.wp-toolbar {
+  padding-top: $adminbar-height;
 }
 
 #adminmenu .wp-submenu {
@@ -80,7 +111,7 @@ $adminmenu-width-folded: 60px;
 }
 
 #adminmenu .wp-not-current-submenu .wp-submenu, .folded #adminmenu .wp-has-current-submenu .wp-submenu {
-  min-width: ($adminmenu-width/3)*2;
+  min-width: ($adminmenu-width/3)*2.5;
 }
 
 #adminmenu .wp-has-current-submenu ul > li > a, .folded #adminmenu li.menu-top .wp-submenu > li > a {
@@ -92,19 +123,73 @@ $adminmenu-width-folded: 60px;
 }
 
 .folded #adminmenu div.wp-menu-image {
-  width: $adminmenu-width-folded;
-  height: $adminmenu-width-folded;
+
   margin-right: 0;
   &:before {
-    font-size: $adminmenu-width-folded/2;
-    width: $adminmenu-width-folded;
-    height: $adminmenu-width-folded;
     line-height: 1.6;
   }
 }
 
+.folded #adminmenu .wp-submenu-head {
+  display: none;
+}
+
 .folded #adminmenu a.menu-top {
-  height: $adminmenu-width-folded;
+  height: 90px;
+  position: relative;
+  div.wp-menu-image {
+    margin-right: 0;
+    position: absolute;
+    float: none;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px;
+    width: 35px;
+    height: 35px;
+    &:before {
+      width: 35px;
+      height: 35px;
+      line-height: 1;
+      font-size: 35px;
+    }
+  }
+  div.wp-menu-name {
+    left: 0;
+    right: 0;
+    top: 40px;
+    font-size: 13px;
+    text-align: center;
+    .awaiting-mod, .update-plugins {
+      position: absolute;
+      top: -30px;
+      right: 20px;
+    }
+  }
+}
+
+.folded #collapse-menu {
+  #collapse-button {
+    height: 60px;
+    span.collapse-button-icon {
+      display: block;
+      margin-right: 0;
+      position: absolute;
+      float: none;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      width: 40px;
+      height: 40px;
+      &:after {
+        width: 40px;
+        height: 40px;
+        font: normal 40px/1 dashicons !important
+      }
+    }
+    &:hover, &:focus {
+      color: $menu-text;
+    }
+  }
 }
 
 .folded #adminmenu .wp-submenu.sub-open, .folded #adminmenu .opensub .wp-submenu, .folded #adminmenu .wp-has-current-submenu .wp-submenu.sub-open, .folded #adminmenu .wp-has-current-submenu.opensub .wp-submenu, .folded #adminmenu a.menu-top:focus + .wp-submenu, .folded #adminmenu .wp-has-current-submenu a.menu-top:focus + .wp-submenu, .no-js.folded #adminmenu .wp-has-submenu:hover .wp-submenu {
@@ -128,8 +213,43 @@ $adminmenu-width-folded: 60px;
       opacity: 1;
     }
     .folded & {
-      display: none;
+      width: 100%;
+      background-size: 50% auto;
+      height: 80px;
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
+}
+
+.folded #adminmenu li.anunapress-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $adminmenu-width-folded;
+  background-color: $menu-background;
+  z-index: 20000;
+  margin-bottom: 0;
+}
+
+.folded #adminmenu li:nth-child(2) {
+  margin-top: 70px;
+}
+
+.folded #adminmenu ul li:nth-child(2) {
+  margin-top: 0;
+}
+
+.folded ul#adminmenu a.wp-has-current-submenu:after, .folded ul#adminmenu > li a.current:after {
+  border-width: 8px;
+  margin-top: -8px;
+}
+
+.folded ul#adminmenu li.wp-has-submenu.wp-not-current-submenu:hover:after {
+  border-width: 8px;
+  margin-top: -8px;
+  top: 18px;
 }
 
 // Post boxes

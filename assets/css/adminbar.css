@@ -1,3 +1,44 @@
+#wpadminbar {
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 48px;
+}
+
+#wpadminbar .quicklinks a, #wpadminbar .quicklinks .ab-empty-item, #wpadminbar .shortlink-input {
+  height: 32px;
+}
+
+#wpadminbar .quicklinks > ul > li > a {
+  padding: 8px 15px;
+}
+
+#wpadminbar .quicklinks .menupop ul li .ab-item,
+#wpadminbar .quicklinks .menupop ul li a strong,
+#wpadminbar .quicklinks .menupop.hover ul li .ab-item, #wpadminbar #wpadminbar.nojs .quicklinks .menupop:hover ul li .ab-item,
+#wpadminbar .shortlink-input {
+  padding: 5px 20px;
+  min-width: 200px;
+  font-size: 16px;
+}
+
+#wpadminbar .menupop .ab-sub-wrapper {
+  padding-bottom: 15px;
+}
+
+#wpadminbar .menupop .menupop > .ab-item:before {
+  top: 8px;
+}
+
+#wpadminbar #wp-admin-bar-search {
+  height: 48px;
+}
+
+#wpadminbar #wp-admin-bar-search .ab-item {
+  padding-top: 8px;
+  padding-right: 10px;
+}
+
 #wpadminbar #wp-admin-bar-anunatak-logo a.ab-item, #wpadminbar > #wp-toolbar > #wp-admin-bar-root-default #wp-admin-bar-anunatak-logo a.ab-item {
   position: relative;
   width: 24px;
@@ -22,7 +63,7 @@
   content: '';
   background-repeat: no-repeat;
   background-image: url(../img/anunatak-logo-symbol.png);
-  background-size: 15px auto;
+  background-size: 24px auto;
   background-position: center center;
 }
 

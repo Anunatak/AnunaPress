@@ -1,5 +1,42 @@
 @import '../common/_variables';
 
+$adminbar-height: 48px;
+
+#wpadminbar {
+  left: 0;
+  right: 0;
+  width: auto;
+  height: $adminbar-height;
+  .quicklinks a, .quicklinks .ab-empty-item, .shortlink-input {
+    height: $adminbar-height - 16;
+  }
+  .quicklinks > ul > li > a {
+    padding: 8px 15px;
+  }
+
+  .quicklinks .menupop ul li .ab-item,
+  .quicklinks .menupop ul li a strong,
+  .quicklinks .menupop.hover ul li .ab-item, #wpadminbar.nojs .quicklinks .menupop:hover ul li .ab-item,
+  .shortlink-input {
+    padding: 5px 20px;
+    min-width: 200px;
+    font-size: 16px;
+  }
+  .menupop .ab-sub-wrapper {
+    padding-bottom: 15px;
+  }
+  .menupop .menupop > .ab-item:before {
+    top: 8px;
+  }
+  #wp-admin-bar-search {
+    height: $adminbar-height;
+    .ab-item {
+      padding-top: 8px;
+      padding-right: 10px;
+    }
+  }
+}
+
 #wpadminbar, #wpadminbar > #wp-toolbar > #wp-admin-bar-root-default {
   #wp-admin-bar-anunatak-logo {
     a.ab-item {
@@ -22,7 +59,7 @@
           content: '';
           background-repeat: no-repeat;
           background-image: url(../img/anunatak-logo-symbol.png);
-          background-size: 15px auto;
+          background-size: 24px auto;
           background-position: center center;
         }
       }

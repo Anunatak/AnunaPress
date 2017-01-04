@@ -1,7 +1,13 @@
 <?php
-
+/**
+ * Registers scripts and styles for the plugin
+ */
 class AnunaPress_Enqueue {
 
+    /**
+     * Hook everything up
+     * @return void
+     */
     public static function init() {
         // Register styles
         add_action( 'wp_enqueue_scripts', array(__CLASS__, 'register_styles'), 2 );
@@ -12,6 +18,10 @@ class AnunaPress_Enqueue {
         add_action( 'admin_enqueue_scripts', array(__CLASS__, 'register_scripts'), 2 );
     }
 
+    /**
+     * Registers all necessary styles
+     * @return void
+     */
     public static function register_styles() {
         wp_register_style( 'anunapress/css/lato', '//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext', array(), AnunaPress()->version );
         wp_register_style( 'anunapress/css/login', plugins_url( 'assets/css/login.css', __FILE__ ), array('anunapress/css/lato'), AnunaPress()->version );
@@ -19,6 +29,10 @@ class AnunaPress_Enqueue {
         wp_register_style( 'anunapress/css/adminbar', plugins_url( 'assets/css/adminbar.css', ANUNAPRESS_FILE ), array(), AnunaPress()->version );
     }
 
+    /**
+     * Registers all necessary javascript
+     * @return void
+     */
     public static function register_scripts() {
         wp_register_script( 'anunapress/js/dashboard', plugins_url( 'assets/js/dashboard.js', ANUNAPRESS_FILE ), array('jquery'), AnunaPress()->version );
     }

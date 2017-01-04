@@ -152,9 +152,12 @@ input[type=radio]:checked:before {
 #adminmenu .wp-submenu,
 #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
-.folded #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu {
-	background: $menu-submenu-background;
+	background: $menu-highlight-background;
+}
+
+#adminmenu .wp-not-current-submenu .wp-submenu {
+  background: $menu-submenu-background;
 }
 
 #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {

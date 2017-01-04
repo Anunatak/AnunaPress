@@ -142,6 +142,14 @@ final class AnunaPress {
             require_once 'includes/class-dashboard.php';
         }
 
+        if(apply_filters( 'anunapress_move_nav_menu', true )) {
+            require_once 'includes/class-nav-menu.php';
+        }
+
+        if(apply_filters( 'anunapress_disable_customizer', true )) {
+            require_once 'includes/class-customizer.php';
+        }
+
     }
 }
 
