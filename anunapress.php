@@ -55,6 +55,12 @@ final class AnunaPress {
     public $helpers = null;
 
     /**
+     * Holds the helpers
+     * @var AnunaPress_Helpers
+     */
+    public $updater = null;
+
+    /**
      * Main AnunaPress Instance.
      *
      * Ensures only one instance of AnunaPress is loaded or can be loaded.
@@ -148,6 +154,11 @@ final class AnunaPress {
 
         if(apply_filters( 'anunapress_disable_customizer', true )) {
             require_once 'includes/class-customizer.php';
+        }
+
+        if(apply_filters( 'anunapress_enable_updates', true )) {
+            require_once 'includes/class-update.php';
+            $this->updater = new AnunaPress_Update();
         }
 
     }
