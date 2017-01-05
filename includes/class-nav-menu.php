@@ -19,6 +19,8 @@ class AnunaPress_NavMenu {
      * @return void
      */
     public static function move_menu() {
+        global $submenu, $menu;
+
         if(isset($submenu['themes.php'])) {
 
             foreach($submenu['themes.php'] as $key => $item) {
